@@ -1,0 +1,25 @@
+{
+  "name": "movie-mania",
+  "version": "1.0.0",
+  "description": "An application that allows users to search movies.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfhill24/Movie-Mania.git"
+  },
+  "author": "Shelly Foxworth-Hill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfhill24/Movie-Mania/issues"
+  },
+  "homepage": "https://github.com/sfhill24/Movie-Mania#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.3.4",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.32.0"
+  }
+}
