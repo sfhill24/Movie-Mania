@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.test {
+  background-color: black;
+}
+
+.jumbo-pic {
+  width: 2200px;
+  height: 1000px;
+}
+
+.source-img {
+  width: 150;
+  height: 50px;
+}
