@@ -3,9 +3,7 @@ import './App.css';
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Footer from "./components/Footer";
-import Jumbotron from "./components/Jumbotron";
-import MovieCard from "./components/MovieCard";
-import { Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -13,9 +11,13 @@ function App() {
   return (
 
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details" element={<Details />} />
+        </Routes>
+      </div>
+      <Footer />
     </Router>
     /*
     <div className="container-fluid ">

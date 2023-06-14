@@ -75,4 +75,7 @@ color: white;
   width: 300px;
 }
 
+.main {
+  min-height: 1200px;
+}
 

@@ -1,13 +1,13 @@
 import React from "react";
 
 const Home = () => {
-return (
-    <div className = "flex-container">
+    return (
+        <div className="flex-container">
 
+            HOME
 
-
-    </div>
-)
+        </div>
+    )
 
 };
 
