@@ -5,7 +5,7 @@ function Jumbotron() {
     return (
         <div className="container-fluid ">
             <div className="jumbo-pic flex center">
-                <img className="logo" src={require("../src/assets/movie1.png")} alt="logo" />
+                <img className="logo" src={require("../../../src/assets/movie1.png")} alt="logo" />
             </div>
             <div className="card-div">
                 <div className="flex center">
