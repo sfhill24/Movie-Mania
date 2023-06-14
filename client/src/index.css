@@ -17,11 +17,58 @@ code {
 }
 
 .jumbo-pic {
-  width: 2200px;
-  height: 1000px;
+  height: 650px;
+  background-size: cover;
+  background-image: url("../src/assets/Jumbo.jpg");
 }
 
 .source-img {
-  width: 150;
+  width: 150px;
   height: 50px;
 }
+
+#search-bar {
+  max-width: 1200px;
+  height: 38.50px;
+  bottom: 100px; 
+  margin-left: 0;
+}
+
+#search-btn {
+  color:white;
+  background-color: black;
+  
+}
+
+#a:hover {
+background-color: grey;
+color: white;
+}
+
+.logo {
+  max-width: 700px;
+  height: 700px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex * {
+  flex: 1;
+}
+
+.center {
+  justify-content: center;
+}
+
+.footer {
+  position: fixed;
+  text-align: center;
+}
+
+.card-div {
+ height: 500px; 
+}
+
+
