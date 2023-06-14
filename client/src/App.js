@@ -2,6 +2,7 @@ import './App.css';
 
 
 function App() {
+
   return (
     <div className="container-fluid ">
       <div className="jumbo-pic flex center">
@@ -20,24 +21,36 @@ function App() {
         </div>
         <div className="row">
           <div className="col">
-            1 of 2
+            <div className="card movie-card" >
+              <img className="card-img movie-card" src="..." alt="Card image cap" />
+            </div>
           </div>
           <div className="col">
-            2 of 2
+            <div className="card movie-card" >
+              <img className="card-img movie-card" src="..." alt="Card image cap" />
+            </div>
           </div>
           <div className="col">
-            3 of 3
+            <div className="card movie-card" >
+              <img className="card-img movie-card" src="..." alt="Card image cap" />
+            </div>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            1 of 3
+            <div className="card movie-card" >
+              <img className="card-img movie-card" src="..." alt="Card image cap" />
+            </div>
           </div>
           <div className="col">
-            2 of 3
+            <div className="card movie-card ">
+              <img className="card-img movie-card" src="..." alt="Card image cap" />
+            </div>
           </div>
           <div className="col">
-            3 of 3
+            <div className="card movie-card" >
+              <img className="card-img movie-card" src="..." alt="Card image cap" />
+            </div>
           </div>
         </div>
       </div>

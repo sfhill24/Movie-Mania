@@ -64,11 +64,15 @@ color: white;
 
 .footer {
   position: fixed;
-  text-align: center;
 }
 
 .card-div {
  height: 500px; 
+}
+
+.movie-card {
+  height: 350px;
+  width: 300px;
 }
 
 
