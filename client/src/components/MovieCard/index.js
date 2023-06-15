@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function MovieCard({title}) {
+function MovieCard({imageUrl}) {
     return (
         <div className="card movie-card" >
-            <img className="card-img" src="..." alt="Card image cap" />
-            {title}
+            <img className="card-img" src={imageUrl} alt="movieImage" />
+          
         </div>
   
     )

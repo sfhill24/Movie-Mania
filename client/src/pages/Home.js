@@ -25,9 +25,9 @@ const Home = () => {
         return <div className="no-projects-message">Loading...</div>;
     }
 
-    const movieTitle = popularMovieData.results.map((movie) => {
-        return (<div className="col">
-            <MovieCard title={movie.original_title} />
+    const movieCards = popularMovieData.results.map((movie) => {
+        return (<div className="col-md-auto d-flex">
+            <MovieCard imageUrl={"https://image.tmdb.org/t/p/w500" + movie.poster_path} />
         </div>);
     })
 
@@ -46,7 +46,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="row">
-                    {movieTitle}
+                    {movieCards}
                 </div>
             </div>
 
