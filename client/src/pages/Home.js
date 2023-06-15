@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
 import MovieCard from "../components/MovieCard";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
     const [movieData, setMovieData] = useState(null);
     const [searchInput, setSearchInput] = useState("");
+    const navigate = useNavigate();
 
     const handleSearch = (event) => {
         event.preventDefault();
@@ -49,8 +51,10 @@ const Home = () => {
             return (null)
         }
 
-        return (<div className="col-md-auto d-flex">
-            <MovieCard imageUrl={"https://image.tmdb.org/t/p/w500" + movie.poster_path} />
+        return (<div className="col-md-auto d-flex" onClick={() => navigate(`/details/${movie.id}`)}  >
+            <MovieCard
+                imageUrl={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+             />
         </div>);
     })
 
