@@ -50,7 +50,6 @@ const Home = () => {
         if (movie.poster_path == null) {
             return (null)
         }
-
         return (<div className="col-md-auto d-flex" onClick={() => navigate(`/details/${movie.id}`)}  >
             <MovieCard
                 imageUrl={"https://image.tmdb.org/t/p/w500" + movie.poster_path}

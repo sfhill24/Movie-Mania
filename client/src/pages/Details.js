@@ -33,9 +33,15 @@ const Details = () => {
             .catch(err => console.error(err));
     }, []);
 
-    if (movieDetails == null) {
+    if (movieDetails == null || credits == null) {
         return <div className="no-projects-message">Loading...</div>;
     }
+
+    const actors = credits.cast.slice(0,3).map((x) => {
+        return (<div className="col-md-auto d-flex">
+            {x.name}
+        </div>);
+    })
 
 
     return (
@@ -56,7 +62,7 @@ const Details = () => {
                     <div className="row">
                         <div>{movieDetails.original_title}</div>
                         <div>{movieDetails.overview}</div>
-                        <div>{credits.cast[0].original_name}</div>
+                        <div>{actors}</div>
                         <div>{movieDetails.genres[0].name}</div>
                         <span className="col-sm">col-sm</span>
                         <span className="col-sm">{movieDetails.runtime} minutes</span>
