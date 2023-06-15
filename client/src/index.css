@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background-color: black;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -25,6 +29,8 @@ code {
 .source-img {
   max-width: 50px;
 }
+
+.pointer {cursor: pointer;}
 
 #search-bar {
   max-width: 1200px;
@@ -63,7 +69,11 @@ color: white;
 
 .footer {
   max-width: 200px;
-  
+}
+
+.footer-color {
+  background-color: black;
+  color: white;
 }
 
 
@@ -78,45 +88,56 @@ color: white;
 
 .main {
   min-height: 1200px;
+  background-color:black;
 }
 
 .details-movie-card {
   max-width: 650px;
   height: 1100px;
-  padding-top: 50px;
+  margin-top: 50px;
 }
 
 .details-title {
   font-size: 50px;
   font-weight: bold;
   padding-top: 200px;
-  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .details-overview {
   font-size: x-large;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
   padding-top: 50px
 }
 
 .cast {
   font-size: large;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .icons {
-  padding-right: 15px;
-  padding-left: 5px;
+  margin-right: 15px;
+  margin-left: 5px;
 }
 
 .votes {
-  padding-left: 5px;
+  margin-left: 5px;
 }
 
 .icon-div {
-  padding-top: 25px;
+  margin-top: 50px;
   padding-left: 175px;
 }
+
+.details-page {
+  background-color: black;
+}
+
+.details-page * {
+  color: white;
+}
+
+
 
 
 

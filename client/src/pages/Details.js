@@ -45,7 +45,7 @@ const Details = () => {
     const year = new Date(movieDetails.release_date).getFullYear();
 
     return (
-        <div className="flex-container">
+        <div className="flex-container details-page">
             <div className="row">
                 <div className="col-md-4" >
 
@@ -56,11 +56,11 @@ const Details = () => {
                     <div className="icon-div">
                         <span className="col-md icons"><FaRegThumbsUp size={40}></FaRegThumbsUp></span> <span className="icons "> 500</span>
                         <span className="col-md icons"><FaRegThumbsDown size={40}></FaRegThumbsDown> </span> <span className="icons ">25</span>
-                        <span className="col-md icons"><FaShareAlt></FaShareAlt> </span>
+                        <span className="col-md icons"><FaShareAlt size={40}></FaShareAlt> </span>
                     </div>
                 </div>
 
-                <div className="col-md-8">
+                <div className="col-md-8 ">
                     <div className="row">
                         <div className="details-title">{movieDetails.original_title}</div>
                         <div>
