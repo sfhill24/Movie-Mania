@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
+import { FaThumbsDown, FaRegThumbsDown, FaThumbsUp, FaRegThumbsUp, FaShareAlt } from "react-icons/fa";
 
 const Details = () => {
     const [movieDetails, setMovieDetails] = useState(null);
@@ -37,35 +38,40 @@ const Details = () => {
         return <div className="no-projects-message">Loading...</div>;
     }
 
-    const actors = credits.cast.slice(0,3).map((x) => {
-        return (<div className="col-md-auto d-flex">
-            {x.name}
-        </div>);
-    })
+    const actors = credits.cast.slice(0, 3).map((x) => x.name).join(", ");
 
+    const genres = movieDetails.genres.slice(0, 3).map((x) => x.name).join(", ");
+
+    const year = new Date(movieDetails.release_date).getFullYear();
 
     return (
         <div className="flex-container">
             <div className="row">
-                <div className="col-sm-4">
-                    <MovieCard
-                        imageUrl={"https://image.tmdb.org/t/p/w500" + movieDetails.poster_path}
-                    />
-                    <span className="col-sm">upvote </span>
-                    <span className="col-sm">downvote </span>
-                    <span className="col-sm">share </span>
+                <div className="col-md-4" >
+
+                    <div className="card details-movie-card" >
+                        <img className="card-img" src={"https://image.tmdb.org/t/p/w500" + movieDetails.poster_path} alt="movieImage" />
+
+                    </div>
+                    <div className="icon-div">
+                        <span className="col-md icons"><FaRegThumbsUp size={40}></FaRegThumbsUp></span> <span className="icons "> 500</span>
+                        <span className="col-md icons"><FaRegThumbsDown size={40}></FaRegThumbsDown> </span> <span className="icons ">25</span>
+                        <span className="col-md icons"><FaShareAlt></FaShareAlt> </span>
+                    </div>
                 </div>
 
-
-
-                <div className="col-sm-8">
+                <div className="col-md-8">
                     <div className="row">
-                        <div>{movieDetails.original_title}</div>
-                        <div>{movieDetails.overview}</div>
-                        <div>{actors}</div>
-                        <div>{movieDetails.genres[0].name}</div>
-                        <span className="col-sm">col-sm</span>
-                        <span className="col-sm">{movieDetails.runtime} minutes</span>
+                        <div className="details-title">{movieDetails.original_title}</div>
+                        <div>
+                            <span className="col-sm">{year}</span>
+                            <span>    </span>
+                            <span className="col-sm">{movieDetails.runtime}m</span>
+                        </div>
+                        <div className="details-overview ">{movieDetails.overview}</div>
+                        <div className="cast">Cast: {actors} </div>
+                        <div className="cast">Genres: {genres}</div>
+
                     </div>
 
                 </div>

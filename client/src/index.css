@@ -23,8 +23,7 @@ code {
 }
 
 .source-img {
-  width: 150px;
-  height: 50px;
+  max-width: 50px;
 }
 
 #search-bar {
@@ -63,8 +62,10 @@ color: white;
 }
 
 .footer {
-  /*position: fixed;*/
+  max-width: 200px;
+  
 }
+
 
 .card-div {
  height: 500px; 
@@ -78,4 +79,44 @@ color: white;
 .main {
   min-height: 1200px;
 }
+
+.details-movie-card {
+  max-width: 650px;
+  height: 1100px;
+  padding-top: 50px;
+}
+
+.details-title {
+  font-size: 50px;
+  font-weight: bold;
+  padding-top: 200px;
+  padding-bottom: 0px;
+}
+
+.details-overview {
+  font-size: x-large;
+  padding-bottom: 50px;
+  padding-top: 50px
+}
+
+.cast {
+  font-size: large;
+  padding-bottom: 20px;
+}
+
+.icons {
+  padding-right: 15px;
+  padding-left: 5px;
+}
+
+.votes {
+  padding-left: 5px;
+}
+
+.icon-div {
+  padding-top: 25px;
+  padding-left: 175px;
+}
+
+
 
