@@ -1,0 +1,101 @@
+//Express server set-up
+const express = require('express')
+const app = express()
+
+const { Sequelize, DataTypes } = require('sequelize');
+
+app.use(express.json());
+
+app.get('/', function (req, res) {
+    res.send('Hello World')
+})
+
+const sequelize = new Sequelize({
+    dialect: 'mysql',
+    database: 'movie_mania_db',
+    host: 'localhost',
+    password: 'password',
+    username: 'root'
+});
+
+/******************************************************************MODELS********************************************************************************************** */
+
+const Votes = sequelize.define("votes", {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false
+    },
+    upvotes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
+    },
+    downvotes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
+    },
+    movie_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
+});
+
+/******************************************************************ENDPOINTS********************************************************************************************** */
+
+//Vote endpoint
+app.put('/votes/:movieId', async (req, res) => {
+
+    try {
+        const movieID = req.params.movieId;
+
+        let vote = await Votes.findOne({ where: { movie_id: movieID } });
+        if (vote === null) {
+            if (req.body.upvotes == true) {
+                vote = await Votes.create({ upvotes: 1, movie_id: movieID })
+            } else {
+                vote = await Votes.create({ downvotes: 1, movie_id: movieID })
+            }
+
+        } else {
+            if (req.body.upvotes == true) {
+                await vote.update({ upvotes: vote.upvotes + 1 })
+            } else {
+                await vote.update({ downvotes: vote.downvotes + 1 })
+            }
+
+            await vote.save();
+        }
+
+        res.status(200).json(vote);
+
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+
+
+
+//Get Votes By Movieid 
+
+
+
+
+
+/******************************************************************SEQUELIZE CONNECTION******************************************************************************************************** */
+
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
+
+sequelize.sync({ force: true }).then(() => {
+    app.listen(3001, () => console.log("Now Listening!"));
+});
