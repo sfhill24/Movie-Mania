@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.e519c11b.css",
-    "main.js": "/static/js/main.a6887717.js",
-    "static/js/787.d7a91599.chunk.js": "/static/js/787.d7a91599.chunk.js",
-    "static/media/Jumbo.jpg": "/static/media/Jumbo.ef5ab65a420726a1428d.jpg",
-    "static/media/movie1.png": "/static/media/movie1.4752bc632b64f3bd9d7d.png",
-    "index.html": "/index.html",
-    "main.e519c11b.css.map": "/static/css/main.e519c11b.css.map",
-    "main.a6887717.js.map": "/static/js/main.a6887717.js.map",
-    "787.d7a91599.chunk.js.map": "/static/js/787.d7a91599.chunk.js.map"
+    "main.css": "/Movie-Mania/static/css/main.e8c7808c.css",
+    "main.js": "/Movie-Mania/static/js/main.cb9572c7.js",
+    "static/js/787.d7a91599.chunk.js": "/Movie-Mania/static/js/787.d7a91599.chunk.js",
+    "static/media/Jumbo.jpg": "/Movie-Mania/static/media/Jumbo.ef5ab65a420726a1428d.jpg",
+    "static/media/movie1.png": "/Movie-Mania/static/media/movie1.4752bc632b64f3bd9d7d.png",
+    "index.html": "/Movie-Mania/index.html",
+    "main.e8c7808c.css.map": "/Movie-Mania/static/css/main.e8c7808c.css.map",
+    "main.cb9572c7.js.map": "/Movie-Mania/static/js/main.cb9572c7.js.map",
+    "787.d7a91599.chunk.js.map": "/Movie-Mania/static/js/787.d7a91599.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e519c11b.css",
-    "static/js/main.a6887717.js"
+    "static/css/main.e8c7808c.css",
+    "static/js/main.cb9572c7.js"
   ]
 }
