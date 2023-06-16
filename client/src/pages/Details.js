@@ -36,7 +36,7 @@ const Details = () => {
             .catch(err => console.error(err));
 
 
-        fetch(`http://localhost:3001/movies/${movieId}/votes`, options)
+        fetch(`https://movie-mania-f897cac9052d.herokuapp.com/movies/${movieId}/votes`, options)
             .then(response => response.json())
             .then(response => setVotes(response))
             .catch(err => console.error(err));
@@ -68,7 +68,7 @@ const Details = () => {
             body: JSON.stringify({ upvotes: true })
         };
 
-        fetch(`http://localhost:3001/movies/${movieId}/votes`, options)
+        fetch(`https://movie-mania-f897cac9052d.herokuapp.com/movies/${movieId}/votes`, options)
             .then(response => response.json())
             .then(response => setVotes(response))
             .catch(err => console.error(err));
@@ -88,7 +88,7 @@ const Details = () => {
             body: JSON.stringify({ upvotes: false })
         };
 
-        fetch(`http://localhost:3001/movies/${movieId}/votes`, options)
+        fetch(`https://movie-mania-f897cac9052d.herokuapp.com/movies/${movieId}/votes`, options)
             .then(response => response.json())
             .then(response => setVotes(response))
             .catch(err => console.error(err));
