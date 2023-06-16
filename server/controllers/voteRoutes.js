@@ -7,6 +7,7 @@ app.put('/movies/:movieId/votes', async (req, res) => {
     try {
         const movieID = req.params.movieId;
 
+        //GET votes from database and create votes if it doesn't exist
         let vote = await Votes.findOne({ where: { movie_id: movieID } });
         if (vote === null) {
             if (req.body.upvotes == true) {
@@ -33,11 +34,11 @@ app.put('/movies/:movieId/votes', async (req, res) => {
 });
 
 //Get Votes By Movieid 
-
 app.get('/movies/:movieId/votes', async (req, res) => {
     try {
         const movieID = req.params.movieId;
 
+        //get votes and send 404 if not found
         const vote = await Votes.findOne({ where: { movie_id: movieID } });
         if (vote == null) {
             res.status(404).json("No votes found for this movie id.");

@@ -2,6 +2,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
 
+//Vote schema
 const Votes = sequelize.define("votes", {
     id: {
         type: DataTypes.INTEGER,

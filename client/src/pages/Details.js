@@ -7,11 +7,11 @@ const Details = () => {
     const [movieDetails, setMovieDetails] = useState(null);
     const [credits, setCredits] = useState(null);
     const [votes, setVotes] = useState({});
-    const [num, setNum] = useState(1);
     const location = useLocation();
 
     useEffect(() => {
 
+        //get movieId from url
         let getMovieId = location.pathname.split('/');
 
         let movieId = getMovieId[2];
@@ -23,19 +23,19 @@ const Details = () => {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNTlkMjRmNmU3YTAzZmZjYTE1YWZiZGY4ZjRkM2QyOCIsInN1YiI6IjY0ODcyMzUxZDJiMjA5MDBhZDNkOGEzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PShhPcFP3C6aB0zDpylL8-OcPN_z8OsF-iLRYmkHQcI'
             }
         };
-
+        //movieDetails api call
         fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
             .then(response => response.json())
             .then(response => setMovieDetails(response))
             .catch(err => console.error(err));
 
-
+        //movieCredits api call
         fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`, options)
             .then(response => response.json())
             .then(response => setCredits(response))
             .catch(err => console.error(err));
 
-
+        //votes api call 
         fetch(`https://movie-mania-f897cac9052d.herokuapp.com/movies/${movieId}/votes`, options)
             .then(response => response.json())
             .then(response => setVotes(response))
@@ -43,17 +43,21 @@ const Details = () => {
     }, []);
 
 
-
+ // show loading while making api call
     if (movieDetails == null || credits == null) {
         return <div className="no-projects-message">Loading...</div>;
     }
 
+    //only show first 3 actors from credits api results
     const actors = credits.cast.slice(0, 3).map((x) => x.name).join(", ");
 
+    //only show first 3 genres from movieDetails api results
     const genres = movieDetails.genres.slice(0, 3).map((x) => x.name).join(", ");
 
+    //convert date from api to year
     const year = new Date(movieDetails.release_date).getFullYear();
 
+    //create upvotes and send results to server
     const upVote = () => {
 
         let getMovieId = location.pathname.split('/');
@@ -74,6 +78,7 @@ const Details = () => {
             .catch(err => console.error(err));
     }
 
+    //create downvotes and send results to server
     const downVote = () => {
 
         let getMovieId = location.pathname.split('/');

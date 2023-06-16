@@ -9,8 +9,11 @@ const Home = () => {
     const [movieData, setMovieData] = useState(null);
     const [searchInput, setSearchInput] = useState("");
     let [page, setPage] = useState(1);
+    const [showPagination, setShowPagination] = useState(false);
     const navigate = useNavigate();
 
+
+    //api call to search movies
     const handleSearch = () => {
         const options = {
             method: 'GET',
@@ -20,14 +23,17 @@ const Home = () => {
             }
         };
 
+        //Don't call search if searchInput is empty
         if (searchInput !== "") {
             fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=${page}`, options)
                 .then(response => response.json())
                 .then(response => setMovieData(response))
+                .then(response => setShowPagination(true)) //show pagination at page bottom after search
                 .catch(err => console.error(err));
         }
     };
 
+    //setting previous/next page count for pagination and search
     const previousPage = () => {
         page = page - 1;
         setPage(page);
@@ -39,7 +45,7 @@ const Home = () => {
         setPage(page);
         handleSearch();
     }
-    //Popular Movies
+    //api call to get popular movies
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -55,10 +61,12 @@ const Home = () => {
             .catch(err => console.error(err));
     }, []);
 
+    //show loading page while making api call
     if (movieData == null) {
         return <div className="no-projects-message">Loading...</div>;
     }
 
+    //creating movie cards from movieData results
     const movieCards = movieData.results.map((movie) => {
         if (movie.poster_path == null) {
             return (null)
@@ -84,7 +92,7 @@ const Home = () => {
                     aria-describedby="button-addon2" />
 
                 <FaSearch size={55} className="btn btn-outline-secondary"
-                    type="button" 
+                    type="button"
                     onClick={handleSearch}
                     id="button-addon2">Button</FaSearch>
             </div>
@@ -94,7 +102,7 @@ const Home = () => {
             </div>
 
             <nav>
-                <ul className="pagination center pagination-style">
+                {showPagination && <ul className="pagination center pagination-style">
                     <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
                         <a className="page-link"
                             onClick={previousPage}>
@@ -107,7 +115,7 @@ const Home = () => {
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
-                </ul>
+                </ul>}
             </nav>
 
         </div>
