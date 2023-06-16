@@ -8,7 +8,7 @@ import { FaSearch } from "react-icons/fa";
 const Home = () => {
     const [movieData, setMovieData] = useState(null);
     const [searchInput, setSearchInput] = useState("");
-    const [page, setPage] = useState(1);
+    let [page, setPage] = useState(1);
     const navigate = useNavigate();
 
     const handleSearch = () => {
@@ -29,12 +29,14 @@ const Home = () => {
     };
 
     const previousPage = () => {
-        setPage(page - 1);
+        page = page - 1;
+        setPage(page);
         handleSearch();
     }
 
     const nextPage = () => {
-        setPage(page + 1);
+        page = page + 1;
+        setPage(page);
         handleSearch();
     }
     //Popular Movies
@@ -101,13 +103,13 @@ const Home = () => {
 
             <nav>
                 <ul className="pagination center pagination-style">
-                    <li className={`page-item ${page === 1 ? "ddisabled" : ""}`}>
+                    <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
                         <a className="page-link"
                             onClick={previousPage}>
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li className="page-item">
+                    <li className={`page-item ${page === movieData.total_pages ? "disabled" : ""}`}>
                         <a className="page-link"
                             onClick={nextPage}>
                             <span aria-hidden="true">&raquo;</span>
