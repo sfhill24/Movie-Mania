@@ -1,7 +1,6 @@
 const app = require("express").Router();
 const Votes = require("../models/Votes");
 
-
 //Vote endpoint
 app.put('/movies/:movieId/votes', async (req, res) => {
 
