@@ -12,6 +12,8 @@ app.use(cors({
     origin: process.env.ORIGIN
 }));
 
+const PORT = process.env.PORT || 3001;
+
 app.use(routes);
 
 sequelize
@@ -24,5 +26,5 @@ sequelize
     });
 
 sequelize.sync({ force: true }).then(() => {
-    app.listen(3001, () => console.log("Now Listening!"));
+    app.listen(PORT, () => console.log("Now Listening!"));
 });
