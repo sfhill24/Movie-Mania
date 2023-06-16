@@ -26,7 +26,7 @@ code {
 }
 
 .jumbo-pic {
-  height: 650px;
+  height: 500px;
   background-size: cover;
   background-image: url("../src/assets/Jumbo.jpg");
 }
@@ -38,10 +38,13 @@ code {
 .pointer {cursor: pointer;}
 
 #search-bar {
-  width: 1200px;
-  height: 38.50px;
-  bottom: 100px; 
- 
+  max-width: 600px;
+  height: 55px;
+}
+
+.search-style {
+  padding-top: 50px;
+  padding-bottom: 75px;
 }
 
 .search-btn {
@@ -111,7 +114,7 @@ code {
 }
 
 .main {
-  min-height: 1200px;
+  min-height: 1500px;
   background-color:black;
 }
 

@@ -74,27 +74,19 @@ const Home = () => {
         <div className="flex-container">
             <Jumbotron />
 
-            <div className="card-div flex align ">
-                <div className="flex ">
-                    <div className="input-group mb-3 flex  " id="search-bar">
+            <div className="input-group mb-3 center search-style">
+                <input type="text "
+                    id="search-bar"
+                    className="form-control"
+                    placeholder="Search"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    aria-describedby="button-addon2" />
 
-                        <input
-                            type="text"
-                            className="form-control "
-                            placeholder="Search"
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2"
-                            value={searchInput}
-                            onChange={(e) => setSearchInput(e.target.value)}
-                        />
-                        <div className="input-group-append ">
-                            <FaSearch size={58} className="btn btn-outline-secondary search-btn"
-                                onClick={handleSearch}
-                                type="button"
-                            >Button</FaSearch>
-                        </div>
-                    </div>
-                </div>
+                <FaSearch size={55} className="btn btn-outline-secondary"
+                    type="button" 
+                    onClick={handleSearch}
+                    id="button-addon2">Button</FaSearch>
             </div>
 
             <div className="row flex space-cards center">
