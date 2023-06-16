@@ -6,6 +6,8 @@ import { FaThumbsDown, FaRegThumbsDown, FaThumbsUp, FaRegThumbsUp, FaShareAlt } 
 const Details = () => {
     const [movieDetails, setMovieDetails] = useState(null);
     const [credits, setCredits] = useState(null);
+    const [votes, setVotes] = useState({});
+    const [num, setNum] = useState(1);
     const location = useLocation();
 
     useEffect(() => {
@@ -32,7 +34,15 @@ const Details = () => {
             .then(response => response.json())
             .then(response => setCredits(response))
             .catch(err => console.error(err));
+
+
+        fetch(`http://localhost:3001/movies/${movieId}/votes`, options)
+            .then(response => response.json())
+            .then(response => setVotes(response))
+            .catch(err => console.error(err));
     }, []);
+
+
 
     if (movieDetails == null || credits == null) {
         return <div className="no-projects-message">Loading...</div>;
@@ -44,6 +54,46 @@ const Details = () => {
 
     const year = new Date(movieDetails.release_date).getFullYear();
 
+    const upVote = () => {
+
+        let getMovieId = location.pathname.split('/');
+
+        let movieId = getMovieId[2];
+
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ upvotes: true })
+        };
+
+        fetch(`http://localhost:3001/movies/${movieId}/votes`, options)
+            .then(response => response.json())
+            .then(response => setVotes(response))
+            .catch(err => console.error(err));
+    }
+
+    const downVote = () => {
+
+        let getMovieId = location.pathname.split('/');
+
+        let movieId = getMovieId[2];
+
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ upvotes: false })
+        };
+
+        fetch(`http://localhost:3001/movies/${movieId}/votes`, options)
+            .then(response => response.json())
+            .then(response => setVotes(response))
+            .catch(err => console.error(err));
+    }
+
     return (
         <div className="flex-container details-page">
             <div className="row">
@@ -54,8 +104,8 @@ const Details = () => {
 
                     </div>
                     <div className="icon-div">
-                        <span className="col-md icons"><FaRegThumbsUp size={40}></FaRegThumbsUp></span> <span className="icons "> 500</span>
-                        <span className="col-md icons"><FaRegThumbsDown size={40}></FaRegThumbsDown> </span> <span className="icons ">25</span>
+                        <span className="col-md icons" onClick={upVote}><FaRegThumbsUp size={40}></FaRegThumbsUp></span> <span className="icons "> {votes.upvotes}</span>
+                        <span className="col-md icons" onClick={downVote}><FaRegThumbsDown size={40}></FaRegThumbsDown> </span> <span className="icons ">{votes.downvotes}</span>
                         <span className="col-md icons"><FaShareAlt size={40}></FaShareAlt> </span>
                     </div>
                 </div>

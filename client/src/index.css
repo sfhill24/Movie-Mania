@@ -94,6 +94,7 @@ color: white !important;
 .movie-card {
   height: 350px;
   width: 300px;
+  cursor: pointer;
 }
 
 .zoom {
@@ -140,6 +141,7 @@ color: white !important;
 .icons {
   margin-right: 15px;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .votes {
@@ -161,6 +163,7 @@ color: white !important;
 
 .pagination-style {
   padding-top: 30px;
+  cursor: pointer;
 }
 
 
