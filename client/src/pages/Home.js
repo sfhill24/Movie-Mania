@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
 import MovieCard from "../components/MovieCard";
 import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 
 const Home = () => {
@@ -28,6 +29,11 @@ const Home = () => {
     };
 
     const previousPage = () => {
+        setPage(page - 1);
+        handleSearch();
+    }
+
+    const nextPage = () => {
         setPage(page + 1);
         handleSearch();
     }
@@ -80,10 +86,10 @@ const Home = () => {
                             onChange={(e) => setSearchInput(e.target.value)}
                         />
                         <div className="input-group-append">
-                            <button className="btn btn-outline-secondary search-btn"
+                            <FaSearch size={58} className="btn btn-outline-secondary search-btn"
                                 onClick={handleSearch}
                                 type="button"
-                            >Button</button>
+                            >Button</FaSearch>
                         </div>
                     </div>
                 </div>
@@ -102,7 +108,8 @@ const Home = () => {
                         </a>
                     </li>
                     <li className="page-item">
-                        <a className="page-link" href="#" aria-label="Next">
+                        <a className="page-link"
+                            onClick={nextPage}>
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
