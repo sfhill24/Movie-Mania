@@ -1,3 +1,8 @@
+
+/*
+The TMDB API has the ability to rate movies, but I created a backend server and database for votes to show that I have the ability to do frontend and backend. 
+*/
+
 //Express server set-up
 const path = require('path');
 const express = require('express')

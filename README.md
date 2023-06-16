@@ -4,6 +4,10 @@
   Movie Mania is an application that lets users to easily search for movies and access information about their favorite films. 
 
 
+  NOTE: The TMDB API has the ability to rate movies, but I created a backend server and database for votes to show that I have the ability to do frontend and backend.
+
+
+
   ## Table of Contents 
 
   - [Installation](#installation)

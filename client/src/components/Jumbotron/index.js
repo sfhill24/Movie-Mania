@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+//Added API log to source calls per TMBD api documentation
 function Jumbotron() {
     return (
         <div className="container-fluid ">
