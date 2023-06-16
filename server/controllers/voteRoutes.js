@@ -1,5 +1,5 @@
 const app = require("express").Router();
-const { Votes } = require("../models/Votes");
+const Votes = require("../models/Votes");
 
 
 //Vote endpoint
