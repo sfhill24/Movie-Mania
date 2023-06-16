@@ -44,7 +44,7 @@ const Details = () => {
 
 
  // show loading while making api call
-    if (movieDetails == null || credits == null) {
+    if (movieDetails == null || credits == null || votes == null) {
         return <div className="no-projects-message">Loading...</div>;
     }
 
