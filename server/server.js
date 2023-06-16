@@ -46,7 +46,7 @@ const Votes = sequelize.define("votes", {
 /******************************************************************ENDPOINTS********************************************************************************************** */
 
 //Vote endpoint
-app.put('/votes/:movieId', async (req, res) => {
+app.put('/movies/:movieId/votes', async (req, res) => {
 
     try {
         const movieID = req.params.movieId;
@@ -76,12 +76,26 @@ app.put('/votes/:movieId', async (req, res) => {
     }
 });
 
-
-
-
 //Get Votes By Movieid 
 
+app.get('/movies/:movieId/votes', async (req, res) => {
+    try {
+        const movieID = req.params.movieId;
 
+        const vote = await Votes.findOne({ where: { movie_id: movieID } });
+        if (vote == null) {
+            res.status(404).json("No votes found for this movie id.");
+            return;
+        }
+
+        res.status(200).json(vote);
+
+    } catch (error) {
+        res.status(500).json(error);
+    }
+
+
+});
 
 
 
