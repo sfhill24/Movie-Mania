@@ -16,7 +16,7 @@ const Home = () => {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNTlkMjRmNmU3YTAzZmZjYTE1YWZiZGY4ZjRkM2QyOCIsInN1YiI6IjY0ODcyMzUxZDJiMjA5MDBhZDNkOGEzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PShhPcFP3C6aB0zDpylL8-OcPN_z8OsF-iLRYmkHQcI'
+                Authorization: process.env.REACT_APP_API_KEY
             }
         };
 
@@ -45,7 +45,7 @@ const Home = () => {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNTlkMjRmNmU3YTAzZmZjYTE1YWZiZGY4ZjRkM2QyOCIsInN1YiI6IjY0ODcyMzUxZDJiMjA5MDBhZDNkOGEzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PShhPcFP3C6aB0zDpylL8-OcPN_z8OsF-iLRYmkHQcI'
+                Authorization: process.env.REACT_APP_API_KEYKEY
             }
         };
 
@@ -74,9 +74,9 @@ const Home = () => {
         <div className="flex-container">
             <Jumbotron />
 
-            <div className="card-div">
-                <div className="flex center">
-                    <div className="input-group mb-3" id="search-bar">
+            <div className="card-div flex align ">
+                <div className="flex ">
+                    <div className="input-group mb-3 flex  " id="search-bar">
 
                         <input
                             type="text"
@@ -87,7 +87,7 @@ const Home = () => {
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                         />
-                        <div className="input-group-append">
+                        <div className="input-group-append ">
                             <FaSearch size={58} className="btn btn-outline-secondary search-btn"
                                 onClick={handleSearch}
                                 type="button"

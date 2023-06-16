@@ -38,28 +38,26 @@ code {
 .pointer {cursor: pointer;}
 
 #search-bar {
-  max-width: 1200px;
+  width: 1200px;
   height: 38.50px;
   bottom: 100px; 
-  margin-left: 0;
-  margin-left: 500px;
+ 
 }
 
 .search-btn {
   color:white !important;
   background-color: black !important;
-  
 }
 
 .search-btn:hover {
-background-color: grey !important;
-color: white !important;
+  background-color: grey !important;
+  color: white !important;
 }
 
 .logo {
-  max-width: 850px;
-  height: 850px;
-  padding-bottom: 150px;
+  max-width: 1050px;
+  height: 900px;
+  padding-bottom: 200px;
 }
 
 .flex {
@@ -76,6 +74,10 @@ color: white !important;
 
 .space-cards {
   row-gap: 20px;;
+}
+
+.align {
+  align-content: center;
 }
 
 .footer {
@@ -98,7 +100,6 @@ color: white !important;
 }
 
 .zoom {
-
   transition: transform .2s;
 }
 
