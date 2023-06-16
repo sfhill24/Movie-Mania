@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
     const [movieData, setMovieData] = useState(null);
     const [searchInput, setSearchInput] = useState("");
+    const [page, setPage] = useState(1);
     const navigate = useNavigate();
 
-    const handleSearch = (event) => {
-        event.preventDefault();
+    const handleSearch = () => {
         const options = {
             method: 'GET',
             headers: {
@@ -19,12 +19,18 @@ const Home = () => {
             }
         };
 
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`, options)
-            .then(response => response.json())
-            .then(response => setMovieData(response))
-            .catch(err => console.error(err));
+        if (searchInput !== "") {
+            fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`, options)
+                .then(response => response.json())
+                .then(response => setMovieData(response))
+                .catch(err => console.error(err));
+        }
     };
 
+    const previousPage = () => {
+        setPage(page + 1);
+        handleSearch();
+    }
 
     //Popular Movies
     useEffect(() => {
@@ -53,10 +59,9 @@ const Home = () => {
         return (<div className="col-md-auto d-flex" onClick={() => navigate(`/details/${movie.id}`)}  >
             <MovieCard
                 imageUrl={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-             />
+            />
         </div>);
     })
-
 
     return (
         <div className="flex-container">
@@ -75,19 +80,35 @@ const Home = () => {
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                         />
-
                         <div className="input-group-append">
-                            <button className="btn btn-outline-secondary a:hover"
+                            <button className="btn btn-outline-secondary search-btn"
                                 onClick={handleSearch}
                                 type="button"
-                                id="a:hover">Button</button>
+                            >Button</button>
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    {movieCards}
-                </div>
             </div>
+
+            <div className="row flex space-cards center">
+                {movieCards}
+            </div>
+
+            <nav>
+                <ul className="pagination center pagination-style">
+                    <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
+                        <a className="page-link"
+                            onClick={previousPage}>
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li className="page-item">
+                        <a className="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
         </div>
     )
