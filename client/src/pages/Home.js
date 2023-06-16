@@ -20,7 +20,7 @@ const Home = () => {
         };
 
         if (searchInput !== "") {
-            fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`, options)
+            fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=${page}`, options)
                 .then(response => response.json())
                 .then(response => setMovieData(response))
                 .catch(err => console.error(err));
@@ -31,7 +31,6 @@ const Home = () => {
         setPage(page + 1);
         handleSearch();
     }
-
     //Popular Movies
     useEffect(() => {
         const options = {
@@ -96,7 +95,7 @@ const Home = () => {
 
             <nav>
                 <ul className="pagination center pagination-style">
-                    <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
+                    <li className={`page-item ${page === 1 ? "ddisabled" : ""}`}>
                         <a className="page-link"
                             onClick={previousPage}>
                             <span aria-hidden="true">&laquo;</span>

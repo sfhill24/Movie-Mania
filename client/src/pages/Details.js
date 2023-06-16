@@ -49,8 +49,8 @@ const Details = () => {
             <div className="row">
                 <div className="col-md-4" >
 
-                    <div className="card details-movie-card" >
-                        <img className="card-img" src={"https://image.tmdb.org/t/p/w500" + movieDetails.poster_path} alt="movieImage" />
+                    <div className="card details-movie-card " >
+                        <img className="card-img " src={"https://image.tmdb.org/t/p/w500" + movieDetails.poster_path} alt="movieImage" />
 
                     </div>
                     <div className="icon-div">

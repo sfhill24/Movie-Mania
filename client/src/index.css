@@ -88,12 +88,24 @@ color: white !important;
 }
 
 .card-div {
- height: 100px; 
+ height: 20px; 
 }
 
 .movie-card {
   height: 350px;
   width: 300px;
+}
+
+.zoom {
+
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.25); 
+  -webkit-transform: scale(1.25); 
+  transform: scale(1.25); 
+  z-index: 1;
 }
 
 .main {
@@ -150,6 +162,8 @@ color: white !important;
 .pagination-style {
   padding-top: 30px;
 }
+
+
 
 
 
