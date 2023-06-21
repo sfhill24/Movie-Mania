@@ -1,7 +1,7 @@
  # Movie Mania 
 
   ## Description
-  Movie Mania is an application that lets users to easily search for movies and access information about their favorite films. 
+  Movie Mania is an application that lets users easily search for movies and access information about their favorite films. 
   
 ![Home Screenshot](https://github.com/sfhill24/Movie-Mania/assets/49098706/b51512a1-9402-445a-9ad6-f29907ec30d3)
 ![Movie Details Screenshot](https://github.com/sfhill24/Movie-Mania/assets/49098706/f596575d-9846-42f0-ab91-b23905815a21)
